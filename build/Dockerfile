@@ -8,4 +8,4 @@ WORKDIR /opt/steamcmd
 RUN wget -qO - https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz | tar xzvf -
 COPY srv_install.sh .
 RUN chmod +x ./srv_install.sh
-RUN ./srv_install.sh
+RUN ./srv_install.sh $GAME_TITLE $STEAM_ID
