@@ -3,15 +3,13 @@ version: '3'
 services:
   game_server:
     build: ./build
-
     volumes:
       - $HOME/steamcmd-docker/config:/config
       - $HOME/steamcmd-docker/data:/opt/steam/$GAME_TITLE
     cap_add:
       - sys_nice
     ports: 
-      - "21025:21025/tcp"
-      - "21025:21025/udp"
+      - "${GAME_SERVER_PORT}:{GAME_SERVER_PORT}"
     env_file:
       - $HOME/steamcmd-docker/config/config.env
     restart: always
