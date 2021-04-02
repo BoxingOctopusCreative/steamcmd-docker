@@ -1,0 +1,9 @@
+services:
+  syslog_support:
+    extends: docker-compose.yml
+    service: game_server
+    logging:
+      driver: syslog
+      options:
+        syslog-address: $SYSLOG_SERVER_ADDRESS
+        tag: "{{.Name}}/{{.ID}}"
